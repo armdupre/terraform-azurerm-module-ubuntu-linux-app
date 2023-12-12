@@ -53,15 +53,14 @@ resource "azurerm_network_interface" "Eth0" {
 	}
 	ip_configuration {
 		name = "ipconfig1"
-		private_ip_address = local.Eth0IpAddress
-		private_ip_address_allocation = "Static"
+		private_ip_address_allocation = "Dynamic"
 		public_ip_address_id = azurerm_public_ip.Eth0PublicIpAddress.id
 		subnet_id = local.Eth0SubnetId
 		primary = "true"
 		private_ip_address_version = "IPv4"
 	}
 	dns_servers = []
-	enable_accelerated_networking = local.Eth0EnableAcceleratedNetworking
+	enable_accelerated_networking = local.EnableAcceleratedNetworking
 	enable_ip_forwarding = local.EnableIpForwarding
 	depends_on = [
 		azurerm_public_ip.Eth0PublicIpAddress

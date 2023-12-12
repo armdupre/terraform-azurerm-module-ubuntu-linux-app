@@ -1,14 +1,14 @@
 # module-ubuntu-linux-app/azurerm
 
 ## Description
-Terraform module for Ubuntu Linux app deployment on Microsoft Azure
+Terraform module for Ubuntu Linux application deployment on Microsoft Azure
 
 ## Deployment
-This module creates a single instance having one network interface.
+This module creates a single instance having a single network interface.
 
 ## Usage
 ```tf
-module "Agent" {
+module "App" {
 	source  = "armdupre/module-ubuntu-linux-app/azurerm"
 	Eth0SubnetId = module.Vnet.PublicSubnet.id
 	ResourceGroupName = azurerm_resource_group.ResourceGroup.name
